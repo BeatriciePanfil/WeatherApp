@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="src/style.css">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="weather-app">
+    <header>
+      <form class="search-form" id="search-form">
+        <input type="search" placeholder="Enter a city.." id="search-form-input" class="search-form-input" required>
+        <input type="submit" value="Search" class="search-form-button">
+      </form>
+    </header>
+    <main>
+      <div class="weather-app-data">
+        <div>
+          <h1 class="weather-app-city" id="city">Paris</h1>
+          <p class="weather-app-details">
+            <span id="time">Tuesday 14:49</span>,
+            <span id="description">scattered clouds</span>
+            <br />
+            Humidity: <strong id="humidity">66%</strong>, Wind:
+            <strong id="wind-speed">3.13 km/h</strong>
+          </p>
+        </div>
+        <div class="temperature-container">
+          <div id="icon">☁️</div>
+          <div class="weather-app-temperature" id="temperature">12</div>
+          <div class="weatehr-app-unit">°C</div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      This project was coded by <a href="https://github.com/BeatriciePanfil" target="_blank">Beatricie Panfil</a>, is <a
+        href="https://github.com/BeatriciePanfil/WeatherApp" target="_blank">is open-sourcedon GitHub</a>
+      and <a href="#" target="_blank">hosted on Netlify</a>
+    </footer>
+  </div>
+  <script src="src/index.js"></script>
+</body>
+
+</html>
