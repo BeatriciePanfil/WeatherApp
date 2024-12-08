@@ -8,6 +8,9 @@ function returnWeather(response) {
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   let iconElement = document.querySelector("#icon");
+  let pressureElement = document.querySelector("#pressure");
+  let realFeelElement = document.querySelector("#real-feel");
+  let feelsLike = response.data.temperature.feels_like;
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -16,8 +19,11 @@ function returnWeather(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+  pressureElement.innerHTML = `${response.data.temperature.pressure} mbar`;
+  realFeelElement.innerHTML = `${Math.round(feelsLike)}°C`;
 
   getForecast(response.data.city);
+  displayBackground(response.data.condition.icon);
 }
 
 function formatDate(date) {
@@ -73,9 +79,10 @@ function displayForecast(response) {
         forecastHtml +
         `
       <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${formatDay(day.time)}</div>
+        
         <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
-        <div class="weather-forecast-temperatures">
+       <div class="weather-forecast-date">${formatDay(day.time)}</div> 
+       <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature">
             <strong>${Math.round(day.temperature.maximum)}°</strong>
           </div>
@@ -88,6 +95,95 @@ function displayForecast(response) {
   });
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
+}
+
+function displayBackground(response) {
+  let box = document.querySelector("#background");
+  let iconName = response;
+
+  if (iconName === "clear-sky-day") {
+    box.classList.add("clear-sky-day");
+  } else {
+    box.classList.remove("clear-sky-day");
+  }
+
+  if (iconName === "clear-sky-night") {
+    box.classList.add("clear-sky-night");
+  } else {
+    box.classList.remove("clear-sky-night");
+  }
+  if (iconName === "few-clouds-day") {
+    box.classList.add("few-clouds-day");
+  } else {
+    box.classList.remove("few-clouds-day");
+  }
+  if (iconName === "few-clouds-night") {
+    box.classList.add("few-clouds-night");
+  } else {
+    box.classList.remove("few-clouds-night");
+  }
+
+  if (iconName === "scattered-clouds-day") {
+    box.classList.add("scattered-clouds-day");
+  } else {
+    box.classList.remove("scattered-clouds-day");
+  }
+  if (iconName === "scattered-clouds-night") {
+    box.classList.add("scattered-clouds-night");
+  } else {
+    box.classList.remove("scattered-clouds-night");
+  }
+
+  if (iconName === "broken-clouds-day") {
+    box.classList.add("broken-clouds-day");
+  } else {
+    box.classList.remove("broken-clouds-day");
+  }
+  if (iconName === "broken-clouds-night") {
+    box.classList.add("broken-clouds-night");
+  } else {
+    box.classList.remove("broken-clouds-night");
+  }
+  if (iconName === "shower-rain-day") {
+    box.classList.add("shower-rain-day");
+  } else {
+    box.classList.remove("shower-rain-day");
+  }
+  if (iconName === "shower-rain-night") {
+    box.classList.add("shower-rain-night");
+  } else {
+    box.classList.remove("shower-rain-night");
+  }
+  if (iconName === "rain-day") {
+    box.classList.add("rain-day");
+  } else {
+    box.classList.remove("rain-day");
+  }
+  if (iconName === "rain-night") {
+    box.classList.add("rain-night");
+  } else {
+    box.classList.remove("rain-night");
+  }
+  if (iconName === "thunderstorm-day") {
+    box.classList.add("thunderstorm-day");
+  } else {
+    box.classList.remove("thunderstorm-day");
+  }
+  if (iconName === "thunderstorm-night") {
+    box.classList.add("thunderstorm-night");
+  } else {
+    box.classList.remove("thunderstorm-night");
+  }
+  if (iconName === "snow-day" || iconName === "snow-night") {
+    box.classList.add("snow");
+  } else {
+    box.classList.remove("snow");
+  }
+  if (iconName === "mist-day" || iconName === "mist-night") {
+    box.classList.add("mist");
+  } else {
+    box.classList.remove("mist");
+  }
 }
 
 let searchFormElement = document.querySelector("#search-form");

@@ -8,59 +8,73 @@ a {
   text-decoration: none;
 }
 .weather-app {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  background: #343d4b;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
-  max-width: 600px;
+  border-radius: 5px;
+  max-width: 800px;
   margin: 45px auto;
   padding: 30px;
 }
-
-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 0 0 30px 0;
+.container {
+  display: flex;
+  justify-content: center;
+  border-radius: 16px;
+  max-width: 800px;
 }
-
+header {
+  border-radius: 16px;
+  max-width: 400px;
+  padding: 25px;
+  height: 400px;
+}
+.background-container {
+  border-radius: 20px;
+}
 .search-form-input {
-  background: rgba(0, 0, 20, 0.975);
+  background: rgba(255, 255, 255, 0.35);
   border: none;
   border-radius: 6px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 16px;
-  padding: 15px 20px;
-  width: 80%;
+  padding: 10px 20px;
+  width: 70%;
+}
+input::placeholder {
+  color: #000000;
+  font-weight: bolder;
+  opacity: 60%;
 }
 
 .search-form-button {
-  background: rgba(0, 0, 20, 0.975);
+  background: rgba(255, 255, 255, 0.35);
   border: none;
   border-radius: 6px;
   color: white;
   font-size: 16px;
   margin-left: 5px;
-  padding: 15px 30px;
+  padding: 10px 15px;
 }
 .search-form-button:hover {
-  background: rgba(255, 255, 255, 0.226);
+  background: rgba(0, 0, 0, 0.226);
   transition: all 200ms ease-in-out;
 }
 main {
-  padding: 30px 0;
-}
-h1 {
-  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);
-}
-.weather-app-data {
-  display: flex;
-  justify-content: space-between;
+  background-color: #222831;
+  max-height: 350px;
+  padding: 0 20px;
+  margin-top: 50px;
 }
 
-.weather-app-city {
+h1 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   font-size: 38px;
   line-height: 48px;
   margin: 0;
+  padding-top: 10px;
 }
-
+.weather-details {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
 .weather-app-details {
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
@@ -79,25 +93,43 @@ h1 {
 .weather-app-icon {
   height: 88px;
   width: 88px;
+  margin-top: 100px;
 }
 
 .weather-app-temperature {
-  font-size: 88px;
+  font-size: 44px;
   font-weight: bold;
-  line-height: 88px;
+  padding-left: 15px;
+  margin-top: -10px;
 }
 
-.weatehr-app-unit {
-  font-size: 28px;
-  margin-top: 6px;
+.weather-app-unit {
+  font-size: 20px;
+  margin-top: -5px;
+}
+.weather-app-description {
+  padding-left: 15px;
+}
+.real-feel,
+.humidity,
+.wind,
+.pressure {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 45px;
 }
 
 .weather-forecast {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 45px;
 }
-
+.weather-forecast-day {
+  background-color: #272e37;
+  border-radius: 10px;
+  margin: 1px;
+  max-width: 70px;
+}
 .weather-forecast-date {
   text-align: center;
   color: rgba(255, 255, 255);
@@ -107,28 +139,89 @@ h1 {
 }
 
 .weather-forecast-icon {
-  width: 88px;
-  height: 88px;
+  width: 60px;
+  height: 60px;
   display: block;
   margin: 0 auto;
 }
 
 .weather-forecast-temperatures {
   text-align: center;
-  color: #6261a5;
+  color: #ffffff;
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
 .weather-forecast-temperature {
-  padding: 0 10px;
+  padding: 0 7px;
 }
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 0.5);
   font-size: 14px;
   padding: 30px 0 0 0;
   text-align: center;
+}
+.clear-sky-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/356/original/clear-sky-day.png?1733692286);
+  background-size: cover;
+}
+.clear-sky-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/375/original/clear-sky-night2.png?1733697234);
+  background-size: cover;
+}
+.few-clouds-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/358/original/few-clouds-day.png?1733695369);
+  background-size: cover;
+}
+.few-clouds-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/359/original/few-clouds-night.png?1733695380);
+}
+.scattered-clouds-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/360/original/scattered-clouds-day.png?1733695409);
+  background-size: cover;
+}
+.scattered-clouds-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/372/original/scattered-clouds-night.png?1733695836);
+  background-size: cover;
+}
+.broken-clouds-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/361/original/broken-clouds-day.png?1733695425);
+  background-size: cover;
+}
+.broken-clouds-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/362/original/broken-clouds-night.png?1733695441);
+  background-size: cover;
+}
+.shower-rain-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/363/original/shower-rain-day.png?1733695455);
+  background-size: cover;
+}
+.shower-rain-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/366/original/rain-night.png?1733695508);
+  background-size: cover;
+}
+.rain-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/365/original/rain-day.png?1733695497);
+  background-size: cover;
+}
+.rain-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/376/original/rain-night.png?1733698505);
+  background-size: cover;
+}
+.thunderstorm-day {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/368/original/thunderstorm-day.png?1733695530);
+  background-size: cover;
+}
+.thunderstorm-night {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/369/original/thunderstorm-night.png?1733695543);
+  background-size: cover;
+}
+.snow {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/370/original/snow.png?1733695553);
+  background-size: cover;
+}
+.mist {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/371/original/mist.png?1733695578);
+  background-size: cover;
 }
